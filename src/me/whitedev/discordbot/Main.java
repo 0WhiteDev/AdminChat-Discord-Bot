@@ -12,7 +12,7 @@ import net.dv8tion.jda.api.requests.GatewayIntent;
 
 public class Main {
 
-    static String TOKEN = "TOKEN BOT HERE";
+    static String TOKEN = "MTA3MDQ4ODQ4ODU5MzU5NjQzNg.GxTgAp.ntOCHZKXu4RfqwLwWGwIiVtvarfMGQKUozjkH0";
     public static String SERVER_ID;
     public static String CATEGORY_ID;
     public static User BOT;
@@ -21,6 +21,8 @@ public class Main {
         try {
             JDA jda = JDABuilder.createDefault(TOKEN)
                     .enableIntents(GatewayIntent.MESSAGE_CONTENT)
+                    .enableIntents(GatewayIntent.GUILD_MEMBERS)
+                    .enableIntents(GatewayIntent.GUILD_PRESENCES)
                     .build();
             jda.addEventListener(new ButtonListener());
             jda.addEventListener(new PrivateMsgListener());
@@ -31,7 +33,7 @@ public class Main {
                     Commands.slash("set-category", "Set the categories in which tickets are to be created").addOption(OptionType.STRING, "id", "ID of Category"),
                     Commands.slash("tickets", "Create a ticket creator on this channel! (Only for Admins)")
             ).queue();
-            jda.getPresence().setPresence(OnlineStatus.ONLINE, Activity.of(Activity.ActivityType.PLAYING, "Bot Version: v1.0"));
+            jda.getPresence().setPresence(OnlineStatus.ONLINE, Activity.of(Activity.ActivityType.PLAYING, "Bot Version: v1.1"));
             BOT = jda.getSelfUser();
             System.out.println("[DiscordBot - 0whitedev] Bot loaded!");
         } catch (Exception e) {

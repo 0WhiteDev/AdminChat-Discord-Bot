@@ -58,7 +58,7 @@ public class ButtonListener extends ListenerAdapter {
     private void closeTicket(ButtonInteractionEvent event) {
         event.reply("Ticket has been successfully closed :lock:").setEphemeral(true).queue();
         TextChannel channel = event.getChannel().asTextChannel();
-        User user = event.getJDA().getUserById(findUser(channel.getName()));
+        User user = event.getJDA().retrieveUserById(findUser(channel.getName())).complete();
         assert user != null;
         messagesUtil.comunicatForUser(user,
                 "Your ticket has been closed :lock:",
@@ -79,7 +79,7 @@ public class ButtonListener extends ListenerAdapter {
 
     private void removeTicket(ButtonInteractionEvent event) {
         TextChannel channel = event.getChannel().asTextChannel();
-        User user = event.getJDA().getUserById(findUser(channel.getName()));
+        User user = event.getJDA().retrieveUserById(findUser(channel.getName())).complete();
         if (user != null) {
             messagesUtil.comunicatForUser(user,
                     "Your ticket has been closed :lock:",

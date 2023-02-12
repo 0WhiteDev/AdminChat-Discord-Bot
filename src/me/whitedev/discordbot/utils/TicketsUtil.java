@@ -34,6 +34,7 @@ public class TicketsUtil {
             channel.sendMessageEmbeds(embed).queue();
         });
         TICKETSMAP.put(user.getIdLong(), "ticket-" + String.format("%03d", tickets));
+        System.out.println(TICKETSMAP);
         guild.createTextChannel("ticket-" + String.format("%03d", tickets), guild.getCategoryById(Main.CATEGORY_ID)).queue();
         while (!channelFound) {
             List<TextChannel> channels = guild.getTextChannelsByName("ticket-" + String.format("%03d", tickets), true);
