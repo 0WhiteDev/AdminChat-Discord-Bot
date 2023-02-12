@@ -12,7 +12,7 @@ import net.dv8tion.jda.api.requests.GatewayIntent;
 
 public class Main {
 
-    static String TOKEN = "MTA3MDQ4ODQ4ODU5MzU5NjQzNg.GxTgAp.ntOCHZKXu4RfqwLwWGwIiVtvarfMGQKUozjkH0";
+    static String TOKEN = "TOKEN_HERE";
     public static String SERVER_ID;
     public static String CATEGORY_ID;
     public static User BOT;
